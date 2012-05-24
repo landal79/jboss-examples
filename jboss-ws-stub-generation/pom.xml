@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>jboss-examples</artifactId>
+		<groupId>org.landal.jboss</groupId>
+		<version>0.0.1-SNAPSHOT</version>		
+	</parent>
+	<artifactId>jboss-ws-stub-generation</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jboss.ws.native</groupId>
+			<artifactId>jbossws-native-core</artifactId>
+			<version>3.1.2.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<!-- Generate WS Client -->
+			<plugin>
+				<groupId>org.jboss.ws.plugins</groupId>
+				<artifactId>maven-jaxws-tools-plugin</artifactId>
+				<version>1.0.0.GA</version>
+				<configuration>
+					<sourceDirectory>${project.build.directory}/generated</sourceDirectory>
+					<!-- Put here wsdls -->
+					<wsdls>
+						<wsdl>http://www.predic8.com:8080/material/ArticleService?wsdl</wsdl>
+					</wsdls>
+					<targetPackage>${project.groupId}.stub</targetPackage>
+					<extension>true</extension>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsconsume</goal>
+						</goals>
+						<configuration>
+							<bindingFiles>
+								<entry>${basedir}/src/main/resources/jaxb-config.xml</entry>
+							</bindingFiles>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
