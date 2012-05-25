@@ -4,21 +4,19 @@
 	<parent>
 		<artifactId>jboss-examples</artifactId>
 		<groupId>org.landal.jboss</groupId>
-		<version>0.0.1-SNAPSHOT</version>		
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>jboss-ws-stub-generation</artifactId>
 
 	<dependencies>
+		<!-- 
+		<dependency> <groupId>org.jboss.ws.native</groupId> <artifactId>jbossws-native-core</artifactId> 
+			<version>3.1.2.GA</version> </dependency> -->
+
 		<dependency>
-			<groupId>org.jboss.ws.native</groupId>
-			<artifactId>jbossws-native-core</artifactId>
-			<version>3.1.2.GA</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
-			<scope>test</scope>
+			<groupId>org.jboss.ws.cxf</groupId>
+			<artifactId>jbossws-cxf-client</artifactId>
+			<version>3.4.1.GA</version>
 		</dependency>
 	</dependencies>
 
@@ -29,7 +27,7 @@
 			<plugin>
 				<groupId>org.jboss.ws.plugins</groupId>
 				<artifactId>maven-jaxws-tools-plugin</artifactId>
-				<version>1.0.0.GA</version>
+				<version>1.0.1.GA</version>
 				<configuration>
 					<sourceDirectory>${project.build.directory}/generated</sourceDirectory>
 					<!-- Put here wsdls -->
@@ -41,7 +39,7 @@
 				</configuration>
 				<executions>
 					<execution>
-						<id>process</id>						
+						<id>process</id>
 						<phase>process-sources</phase>
 						<goals>
 							<goal>wsconsume</goal>
