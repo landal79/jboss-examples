@@ -9,6 +9,5 @@ Howto web service stub class generation starting from wsdl.
 References
 ----------
 
-A list of wsdl 
-http://www.service-repository.com/
+* A list of wsdl  http://www.service-repository.com/
 
