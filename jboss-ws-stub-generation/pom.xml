@@ -7,6 +7,10 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>jboss-ws-stub-generation</artifactId>
+	
+	<properties>
+			<jboss-ws-tools.output.dir>${project.build.directory}/generated</jboss-ws-tools.output.dir>
+	</properties>
 
 	<dependencies>
 		<!-- 
@@ -29,7 +33,7 @@
 				<artifactId>maven-jaxws-tools-plugin</artifactId>
 				<version>1.0.1.GA</version>
 				<configuration>
-					<sourceDirectory>${project.build.directory}/generated</sourceDirectory>
+					<sourceDirectory>${jboss-ws-tools.output.dir}</sourceDirectory>
 					<!-- Put here wsdls -->
 					<wsdls>
 						<wsdl>http://www.predic8.com:8080/material/ArticleService?wsdl</wsdl>
@@ -45,6 +49,7 @@
 							<goal>wsconsume</goal>
 						</goals>
 						<configuration>
+							<verbose>true</verbose>							
 							<bindingFiles>
 								<entry>${basedir}/src/main/resources/jaxb-config.xml</entry>
 							</bindingFiles>
@@ -65,7 +70,7 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>${project.build.directory}/generated</source>
+								<source>${jboss-ws-tools.output.dir}</source>
 							</sources>
 						</configuration>
 					</execution>
