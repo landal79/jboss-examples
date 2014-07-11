@@ -7,15 +7,17 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>jboss-ws-stub-generation</artifactId>
-	
+
 	<properties>
-			<jboss-ws-tools.output.dir>${project.build.directory}/generated</jboss-ws-tools.output.dir>
+		<jboss-ws-tools.output.dir>${project.build.directory}/generated</jboss-ws-tools.output.dir>
 	</properties>
 
 	<dependencies>
-		<!-- 
-		<dependency> <groupId>org.jboss.ws.native</groupId> <artifactId>jbossws-native-core</artifactId> 
-			<version>3.1.2.GA</version> </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.jboss.ws.native</groupId> -->
+		<!-- <artifactId>jbossws-native-core</artifactId> -->
+		<!-- <version>3.1.2.GA</version> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>org.jboss.ws.cxf</groupId>
@@ -49,7 +51,7 @@
 							<goal>wsconsume</goal>
 						</goals>
 						<configuration>
-							<verbose>true</verbose>							
+							<verbose>true</verbose>
 							<bindingFiles>
 								<entry>${basedir}/src/main/resources/jaxb-config.xml</entry>
 							</bindingFiles>
@@ -60,7 +62,6 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.7</version>
 				<executions>
 					<execution>
 						<id>add-source</id>
